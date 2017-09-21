@@ -41,8 +41,7 @@ public class LinkedStack<T> implements Stack<T> {
 	}
 
 	public T pop() {
-		checkEmptiness();
-		T result = head.getValue();
+		T result = peek();
 		head = head.getNext();
 		size--;
 		return result;
