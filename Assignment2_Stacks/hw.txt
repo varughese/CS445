@@ -1,13 +1,33 @@
-For 23 pushes, array approach took 20719ns and linked approach took 312240ns.
+For 23 pushes, array approach took 20,719ns and linked approach took 312,240ns.
 
-For pops, array approach took 13723ns and linked approach took 18055ns.
+For pops, array approach took 13,723ns and linked approach took 18,055ns.
 
-For 1000 pushes, array approach took 208058ns and linked approach took 317417ns.
+For 1000 pushes, array approach took 208,058ns and linked approach took 317,417ns.
 
-For pops, array approach took 395827ns and linked approach took 590041ns.
+For pops, array approach took 395,827ns and linked approach took 590,041ns.
 
-For 1000000 pushes, array approach took 49851708ns and linked approach took 106684577ns.
+For 1000000 pushes, array approach took 49,851,708ns and linked approach took 106,684,577ns.
 
-For pops, array approach took 39805825ns and linked approach took 39302097ns.
+For pops, array approach took 39,805,825ns and linked approach took 39,302,097ns.
 
-For 40000 sporadic pushes and pops, array approach took 42870357ns and linked approach took 69025656ns.
+For 40000 sporadic pushes and pops, array approach took 42,870,357ns and linked approach took 69,025,656ns.
+
+
+
+Which implementation is faster for small amounts of pushes? 
+Array
+
+Which implementation is faster for small amounts of pops? 
+Array
+
+Which implementation is faster for larger amounts of pushes?
+Array
+
+Which implementation is faster for larger amounts of pops?
+Linked list
+
+How do you explain your results for 1-4?  Were any results surprising?  Why or why not?
+
+
+What are the tradeoffs to be considered in these implementations?
+
