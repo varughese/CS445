@@ -4,7 +4,7 @@ public class ArrayQueue<T> implements Queue<T> {
 
 	
 	public ArrayQueue() {
-		array = new Object[1];
+		array = new Object[10];
 		size = first = last = 0;
 	}
 	
@@ -12,7 +12,9 @@ public class ArrayQueue<T> implements Queue<T> {
 	public T remove() {
 		T result = peek();
 		first++;
-		if(first >= array.length) first = 0;
+		if(first >= array.length) {
+			first = 0;
+		}
 		size--;
 		return result;
 	}
@@ -33,8 +35,7 @@ public class ArrayQueue<T> implements Queue<T> {
 	}
 	
 	private void ensureCapacity() {
-		if(first == last && !isEmpty()) {
-			
+		if(first == last && !isEmpty()) {	
 			Object temp[] = new Object[array.length * 2 + 1];
 			for(int i=0; i<size-first; i++) {
 				temp[i] = array[i+first];

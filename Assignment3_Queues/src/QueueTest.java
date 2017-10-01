@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 import org.junit.Test;
-
 public class QueueTest {
 
   private static final String FIRST = "F";
