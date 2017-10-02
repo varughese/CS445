@@ -12,9 +12,7 @@ public class ArrayQueue<T> implements Queue<T> {
 	public T remove() {
 		T result = peek();
 		first++;
-		if(first >= array.length) {
-			first = 0;
-		}
+		if(first >= array.length) first = 0;
 		size--;
 		return result;
 	}
@@ -40,8 +38,8 @@ public class ArrayQueue<T> implements Queue<T> {
 			for(int i=0; i<size-first; i++) {
 				temp[i] = array[i+first];
 			}
-			for(int i=size-first; i<size; i++) {
-				temp[i] = array[i-size+last];
+			for(int i=0; i<last; i++) {
+				temp[i+(size-first)] = array[i];
 			}
 			array = temp;
 			first = 0;
