@@ -1,0 +1,6 @@
+language: java
+env:
+  - TEST_DIR=Assignment3_Queues
+  - TEST_DIR=Assignment2_Stacks
+  - TEST_DIR=Assignment1_ArrayLists
+script: cd $TEST_DIR && ant test
