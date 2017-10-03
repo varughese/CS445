@@ -11,8 +11,7 @@ public class ArrayQueue<T> implements Queue<T> {
 	@Override
 	public T remove() {
 		T result = peek();
-		first++;
-		if(first >= array.length) first = 0;
+		first = (first + 1) % array.length;
 		size--;
 		return result;
 	}
@@ -27,8 +26,7 @@ public class ArrayQueue<T> implements Queue<T> {
 	public void add(T thing) {
 		ensureCapacity();
 		array[last] = thing;
-		last++;
-		if(last >= array.length) last = 0;
+		last = (last + 1) % array.length;
 		size++;
 	}
 	

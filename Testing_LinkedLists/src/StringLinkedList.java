@@ -152,12 +152,12 @@ public class StringLinkedList implements Iterable<String> {
 	  }
 	  
 	  public boolean hasNext() {
-		  return current.getNext() != null;
+		  return current != null;
 	  }
 	  
 	  public String next() {
 		  if(hasNext()) {
-			  String value = (String) current.getNext().getValue();
+			  String value = (String) current.getValue();
 			  current = current.getNext();
 			  return value;
 		  } else {
