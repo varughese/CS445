@@ -1,9 +1,19 @@
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+import java.text.*;
+
 
 public class ArrayTest {
 
+  int[] array = createArray(2000);
+  int[] arrayCopy;
+  IntSorter sorter;
+  
   public static int[] createArray(int size) {
     int[] result = new int[size];
     for (int i = 0; i < result.length; i++) {
@@ -21,43 +31,62 @@ public class ArrayTest {
     return true;
   }
   
+
+  @Before
+  public void initObjects() {
+	  arrayCopy = Arrays.copyOf(array, array.length);
+  }
+  
   @Test
-  public void testSort() {
-    int[] array = createArray(100);
-    BubbleSorter sorter = new BubbleSorter();
-    sorter.init(array);
+  public void testBubbleSort() {
+    sorter = new BubbleSorter();
+    sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nBubble Moves: " + sorter.getMoves());
-    assertTrue(isSorted(array));
+    System.out.println("\nBubble");
+    assertTrue(isSorted(arrayCopy));
   }
   
   @Test
   public void testInsertionSort() {
-    int[] array = createArray(100);
-    InsertionSorter sorter = new InsertionSorter();
-    sorter.init(array);
+    sorter = new InsertionSorter();
+    sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nInsertion Moves: " + sorter.getMoves());
-    assertTrue(isSorted(array));
+    System.out.println("\nInsertion");
+    assertTrue(isSorted(arrayCopy));
   }
   
   @Test
-  public void testSelectinoSort() {
-    int[] array = createArray(100);
-    SelectionSorter sorter = new SelectionSorter();
-    sorter.init(array);
+  public void testSelectionSort() {
+    sorter = new SelectionSorter();
+    sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nSelection Moves: " + sorter.getMoves());
-    assertTrue(isSorted(array));
+    System.out.println("\nSelection");
+    assertTrue(isSorted(arrayCopy));
   }
   
   @Test
   public void testMergeSort() {
-    int[] array = {9, 8, 7, 6};
-    MergeSorter sorter = new MergeSorter();
-    sorter.init(array);
+    sorter = new MergeSorter();
+    sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nMerge moves: " + sorter.getMoves());
-    assertTrue(isSorted(array));
+    System.out.println("\nMerge");
+    assertTrue(isSorted(arrayCopy));
+  }
+  
+  
+  @After
+  public void getSortTime() {
+	  long sortTime = sorter.getSortTime();
+	  DecimalFormat myFormatter = new DecimalFormat("###,###,###");
+      String output = myFormatter.format(sortTime);
+	  System.out.println("----Time Taken: " + output + " ns");
+  }
+  
+  @After
+  public void getSortMoves() {
+	  int moves = sorter.getMoves();
+	  DecimalFormat myFormatter = new DecimalFormat("###,###,###");
+      String output = myFormatter.format(moves);
+	  System.out.println("----Moves: " + output + " moves");
   }
 }
