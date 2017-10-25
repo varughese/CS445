@@ -1,0 +1,25 @@
+What are the outputs for number of moves?
+
+20 Random:
+Merge      	Time Taken: 17,373 ns		Moves: 88 moves
+Selection	Time Taken: 10,728 ns		Moves: 20 moves
+Bubble   	Time Taken: 17,762 ns		Moves: 102 moves
+Insertion	Time Taken: 10,558 ns		Moves: 79 moves
+
+200 Random:
+Merge      	Time Taken: 907,775   ns		Moves: 21,952 moves
+Selection	Time Taken: 8,449,995 ns		Moves: 2,000 moves
+Bubble   	Time Taken: 9,531,920 ns		Moves: 1,013,265 moves
+Insertion	Time Taken: 9,439,298 ns		Moves: 1,008,038 moves
+
+20000 Random:
+Merge      	Time Taken: 5,335,120 ns		Moves: 287,232 moves
+Selection	Time Taken: 143,244,580 ns		Moves: 20,000 moves
+Bubble   	Time Taken: 677,221,388 ns		Moves: 99,356,340 moves
+Insertion	Time Taken: 216,442,092 ns		Moves: 99,563,408 moves
+
+What are the outputs for runtime?
+
+How do your results compare to your understanding of these algorithms?
+
+If they are different, why do you think this is?

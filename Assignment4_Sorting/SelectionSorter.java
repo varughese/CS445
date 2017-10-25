@@ -11,7 +11,7 @@ public class SelectionSorter implements IntSorter {
 
 	public void sort() {
 		startTime = System.nanoTime();
-		for(int k=0; k<array.length; k++) {
+		for(int k=0; k<array.length-1; k++) {
 			int minIndex = k;
 			for(int i=k+1; i<array.length; i++) {
 				if(array[i] < array[minIndex]) {

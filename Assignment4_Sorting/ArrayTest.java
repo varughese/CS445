@@ -10,9 +10,10 @@ import java.text.*;
 
 public class ArrayTest {
 
-  int[] array = createArray(2000);
+  int[] array = createArray(20000);
   int[] arrayCopy;
   IntSorter sorter;
+  DecimalFormat myFormatter = new DecimalFormat("###,###,###");
   
   public static int[] createArray(int size) {
     int[] result = new int[size];
@@ -42,7 +43,7 @@ public class ArrayTest {
     sorter = new BubbleSorter();
     sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nBubble");
+    System.out.print("\nBubble   ");
     assertTrue(isSorted(arrayCopy));
   }
   
@@ -51,7 +52,7 @@ public class ArrayTest {
     sorter = new InsertionSorter();
     sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nInsertion");
+    System.out.print("\nInsertion");
     assertTrue(isSorted(arrayCopy));
   }
   
@@ -60,7 +61,7 @@ public class ArrayTest {
     sorter = new SelectionSorter();
     sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nSelection");
+    System.out.print("\nSelection");
     assertTrue(isSorted(arrayCopy));
   }
   
@@ -69,24 +70,22 @@ public class ArrayTest {
     sorter = new MergeSorter();
     sorter.init(arrayCopy);
     sorter.sort();
-    System.out.println("\nMerge");
+    System.out.print("\nMerge      ");
     assertTrue(isSorted(arrayCopy));
   }
   
   
   @After
   public void getSortTime() {
-	  long sortTime = sorter.getSortTime();
-	  DecimalFormat myFormatter = new DecimalFormat("###,###,###");
+	  long sortTime = sorter.getSortTime();	  
       String output = myFormatter.format(sortTime);
-	  System.out.println("----Time Taken: " + output + " ns");
+	  System.out.print("\tTime Taken: " + output + " ns\t");
   }
   
   @After
   public void getSortMoves() {
 	  int moves = sorter.getMoves();
-	  DecimalFormat myFormatter = new DecimalFormat("###,###,###");
       String output = myFormatter.format(moves);
-	  System.out.println("----Moves: " + output + " moves");
+	  System.out.print("\tMoves: " + output + " moves");
   }
 }
