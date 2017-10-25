@@ -10,7 +10,7 @@ import java.text.*;
 
 public class ArrayTest {
 
-  int[] array = createArray(20000);
+  int[] array = createArray(50000);
   int[] arrayCopy;
   IntSorter sorter;
   DecimalFormat myFormatter = new DecimalFormat("###,###,###");
