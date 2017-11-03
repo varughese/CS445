@@ -1,0 +1,7 @@
+1. Why do we implement hashCode on individual objects, instead of centrally?  For example, why don't we create a new class that implements hashCode for different objects, or implement hashing functions in the hash table itself?
+
+
+2. Can you create a hashing function for an object that only has transient data?  Why or why not?
+
+3. Let's say we have an object that has limited variability in its data - say, only 1000 possible combinations of values.  Can we create a hash code for such an object?  Why or why not?
+
