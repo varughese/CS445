@@ -21,6 +21,6 @@ public class Circle {
   }
   
   public int hashCode() {
-    return 0;
+    return (x+"_"+y+"_"+radius).hashCode();
   }
 }

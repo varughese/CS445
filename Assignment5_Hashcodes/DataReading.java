@@ -41,17 +41,22 @@ public class DataReading {
   }
   
   public void save() throws IOException {
-    FileWriter out = new FileWriter(.dataoutput, true);
+    FileWriter out = new FileWriter(".dataoutput", true);
     out.write(Long.toString(timestamp));
     for (int i = 1; i < values.length; i++) {
-      out.write(,);
+      out.write(",");
       out.write(Long.toString(values[i]));
     }
-    out.write(n);
+    out.write("\n");
     out.close();
   }
   
   public int hashCode() {
-    return 0;
+    String res = timestamp + "_";
+    for(int i=0; i<values.length-1; i++) {
+    		res += values[i] + "_";
+    }
+    res += "_" + values[values.length-1];
+    return res.hashCode();
   }
 }

@@ -10,7 +10,7 @@ public class Student {
   }
   
   public String getFullName() {
-    return firstName +   + lastName;
+    return firstName + " " + lastName;
   }
   
   public int getIdNumber() {
@@ -26,6 +26,6 @@ public class Student {
   }
   
   public int hashCode() {
-    return 0;
+    return idNumber;
   }
 }

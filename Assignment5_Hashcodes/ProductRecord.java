@@ -18,7 +18,7 @@ public class ProductRecord {
   
   private int validateRange(int value, int lower, int upper) {
     if (value < lower || value > upper) {
-      throw new IllegalArgumentException(Value should be between  + lower +  and  + upper + .);
+      throw new IllegalArgumentException("Value should be between " + lower + " and " + upper + ".");
     }
     return value;
   }
@@ -52,6 +52,6 @@ public class ProductRecord {
   }
   
   public int hashCode() {
-    return 0;
+    return (name+"_"+colorCode+"_"+styleCode+"_"+materialCode+"_"+patternCode).hashCode();
   }
 }
