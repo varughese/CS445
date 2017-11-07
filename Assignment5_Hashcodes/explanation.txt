@@ -1,7 +1,8 @@
 1. Why do we implement hashCode on individual objects, instead of centrally?  For example, why don't we create a new class that implements hashCode for different objects, or implement hashing functions in the hash table itself?
-The hashCode is totally specific to the object itself. A HashTable has a singular purpose that can somewhat be summed up as: put certain things out based on a key, and get things out from that key.
+The hashCode is totally specific to the object itself. A HashTable has a singular purpose that can somewhat be summed up as: put certain things out based on a key, and get things out from that key. It is object agnostic, so it does not really know / should not really know anything specific to the object itself, including the hashcode. Additionally, the hashCode needs to be calculated based on the information about the object.
 
 2. Can you create a hashing function for an object that only has transient data?  Why or why not?
+Yes I think that it might be possible. For instanc
 
 3. Let's say we have an object that has limited variability in its data - say, only 1000 possible combinations of values.  Can we create a hash code for such an object?  Why or why not?
 
