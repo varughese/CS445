@@ -12,8 +12,8 @@ public class InsertionSorter implements IntSorter {
 
 	public void sort() {
 		startTime = System.nanoTime();
-		for(int i=1; i <= array.length; i++) {
-			for(int k=i-1; k >= 1; k--) {
+		for(int i=1; i < array.length; i++) {
+			for(int k=i; k > 0; k--) {
 				if(array[k] < array[k-1]) {
 					swap(array, k, k-1);
 				}
