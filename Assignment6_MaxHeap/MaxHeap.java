@@ -30,9 +30,10 @@ public class MaxHeap {
   }
   
   public static void heapsort(long[] array) {
-    //
-    //TODO implement the heap sort algorithm. "array" should be sorted in place - i.e., don't create a copy.
-    //
+    MaxHeap heap = new MaxHeap(array);
+    for(int i=0; i<array.length; i++) {
+    		heap.remove();
+    }
   }
   
   public boolean isEmpty() {
@@ -54,7 +55,14 @@ public class MaxHeap {
   }
   
   public long remove() {
-    throw new UnsupportedOperationException("TODO: implement this");
+	  if (this.isEmpty()) {
+		  throw new UnsupportedOperationException("Heap is empty.");
+	  }
+	  nextPosition--;
+	  swap(0, nextPosition);
+	  reheapDown(0);
+	  return values[nextPosition];
+	  
   }
   
   private void reheapDown(int i) {

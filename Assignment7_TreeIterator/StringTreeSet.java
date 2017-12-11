@@ -78,15 +78,31 @@ public class StringTreeSet {
   }
   
   private class TreeIterator implements StringIterator {
-    //
-    //TODO your goal is to implement this StringIterator.  It should return values in order.
-    //
+    Stack<TreeNode> stack;
+    private void addToStack(Stack<TreeNode> s, TreeNode current) {
+    		s.add(current);
+    		if(current.hasLeftChild()) {
+    			addToStack(s, current.left);
+    		}
+    }
+    
+	public TreeIterator() {
+    		stack = new Stack<TreeNode>();
+    		addToStack(stack, root);
+    }
+    
     public String next() {
-      return null;
+    		if(!hasNext()) throw new IndexOutOfBoundsException("Empty");
+    		
+    		TreeNode treenode = stack.pop();
+    		if(treenode.hasRightChild()) {
+    			addToStack(stack, treenode.right);
+    		}
+    		return treenode.value;
     }
     
     public boolean hasNext() {
-      return false;
+      return !stack.isEmpty();
     }
   }
   

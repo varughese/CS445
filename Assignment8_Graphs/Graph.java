@@ -1,26 +1,9 @@
-/*
- * Assignment 8 is to navigate a maze represented as a Graph.  A Graph implementation that uses a Map of Strings (node names) to Lists (node neighbors) is provided.
-
-The implementation will allow you to load the edges of your graph as a single String; for instance, to represent this undirected, unweighted graph:
-
-
-
-
-You can represent this graph with this String: A,B;A,D;B,C;B,F;C,F;D,E;E,H;F,G;G,H
-
-Your assignment is implement the getShortedPath method - this method should find the shortest path between the two specified nodes; if no path exists, your method should return null.
-
-25 points: code compiles and runs properly
-10 points: your implementation finds a valid acyclic path between the nodes
-10 points: your implementation finds the *shortest* path between the nodes
-5 points: grader's discretion
- */
+import java.util.ArrayDeque;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Queue;
 
 public class Graph {
 
@@ -117,6 +100,39 @@ public class Graph {
 	}
 	
 	public List<String> getShortestPath(String from, String to) {
+		Map<String,String> visitedMap = new HashMap<String, String>();
+		Queue<String> vertexQueue = new ArrayDeque<String>();
+		
+		vertexQueue.add(from);
+		visitedMap.put(from, null);
+		
+		while(!vertexQueue.isEmpty()) {
+			String currentVertex = vertexQueue.remove();
+			if(currentVertex.equals(to)) {
+				return makePath(from, to, currentVertex, visitedMap);
+			} else {
+				List<Edge> currentEdges = graphData.get(currentVertex);
+				for(Edge edge : currentEdges) {
+					String neighborVertex = edge.adjacentNode;
+					if(!visitedMap.containsKey(neighborVertex)) {
+						vertexQueue.add(neighborVertex);
+						visitedMap.put(neighborVertex, currentVertex);
+					}
+					
+				}
+			}
+		}
 		return null;
 	}
+	
+	private List<String> makePath(String from, String to, String currentVertex, Map<String, String> visitedMap) {
+		LinkedList<String> path = new LinkedList<String>();
+		path.add(currentVertex);
+		while(!currentVertex.equals(from)) {
+			currentVertex = visitedMap.get(currentVertex);
+			path.add(0, currentVertex);
+		}
+		return path;
+	}
+	
 }
